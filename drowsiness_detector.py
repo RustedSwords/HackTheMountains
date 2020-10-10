@@ -10,6 +10,10 @@ from imutils.video import VideoStream
 from imutils import face_utils
 from threading import Thread
 from threading import Timer
+from check_cam_fps import check_fps
+import make_train_data as mtd
+import light_remover as lr
+import ringing_alarm as alarm
 
 def eye_aspect_ratio(eye) :
     A = dist.euclidean(eye[1], eye[5])
