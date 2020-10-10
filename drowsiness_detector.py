@@ -60,3 +60,15 @@ def init_close_ear() :
 def init_message() :
     print("init_message")
     alarm.sound_alarm("init_sound.mp3")
+    
+# Basic Checks, Functions & Threads as per the following list : 
+
+#1. Variables for checking EAR.
+#2. Variables for detecting if user is asleep.
+#3. When the alarm rings, measure the time eyes are being closed.
+#4. When the alarm rangs, count the number of times it is rang, and prevent the alarm from ringing continuously.
+#5. We should count the time eyes are being opened for data labeling.
+#6. Variables for trained data generation and calculation fps.
+#7. Detect face & eyes.
+#8. Run the cam.
+#9. Threads to run the functions in which determine the EAR_THRESH. 
