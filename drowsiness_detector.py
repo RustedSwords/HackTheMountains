@@ -72,3 +72,66 @@ def init_message() :
 #7. Detect face & eyes.
 #8. Run the cam.
 #9. Threads to run the functions in which determine the EAR_THRESH. 
+
+
+#1.Variables for checking EAR.
+
+OPEN_EAR = 0 #For init_open_ear()
+EAR_THRESH = 0 #Threashold value
+
+#2.Variables for detecting if user is asleep.
+#It doesn't matter what you use instead of a consecutive frame to check out drowsiness state. (ex. timer)
+
+EAR_CONSEC_FRAMES = 20 
+COUNTER = 0 #Frames counter.
+
+#3.When the alarm rings, measure the time eyes are being closed.
+
+closed_eyes_time = [] #The time eyes were being offed.
+TIMER_FLAG = False #Flag to activate 'start_closing' variable, which measures the eyes closing time.
+ALARM_FLAG = False #Flag to check if alarm has ever been triggered.
+
+#4.When the alarm rangs, count the number of times it is rang, and prevent the alarm from ringing continuously.
+
+ALARM_COUNT = 0 #Number of times the total alarm rang.
+RUNNING_TIME = 0 #Variable to prevent alarm going off continuously.
+
+#5.We should count the time eyes are being opened for data labeling.
+
+PREV_TERM = 0 #Variable to measure the time eyes were being opened until the alarm rang.
+
+#6.Variables for trained data generation and calculation fps.make trained data 
+
+np.random.seed(9)
+power, nomal, short = mtd.start(25) #actually this three values aren't used now. (if you use this, you can do the plotting)
+#The array the actual test data is placed.
+test_data = []
+#The array the actual labeld data of test data is placed.
+result_data = []
+#For calculate fps
+prev_time = 0
+
+#7.Detect face & eyes.
+
+print("loading facial landmark predictor...")
+detector = dlib.get_frontal_face_detector()
+predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
+
+(lStart, lEnd) = face_utils.FACIAL_LANDMARKS_IDXS["left_eye"]
+(rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
+
+#8.
+print("starting video stream thread...")
+vs = VideoStream(src=0).start()
+time.sleep(1.0)
+
+#9.
+th_open = Thread(target = init_open_ear)
+th_open.deamon = True
+th_open.start()
+th_close = Thread(target = init_close_ear)
+th_close.deamon = True
+th_close.start()
+
+# Basic Checks, Functions & Threads Ends here
+
