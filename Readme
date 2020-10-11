@@ -1,8 +1,6 @@
-The main requirement is the shape recogniser which you can download from :  https://drive.google.com/file/d/1PxyeMw_gEwZWyelVWqLPzL8ZcR_Azfe2/view?usp=sharing
+You will require this files in your repositary to run our project, which you can download from :  https://drive.google.com/file/d/1PxyeMw_gEwZWyelVWqLPzL8ZcR_Azfe2/view?usp=sharing
 
 You can see the demo of project here : https://www.youtube.com/watch?v=d9B51LV26io&feature=youtu.be
-
-You will require these files in your repositary to run this.
 
 Python libraries which you will need to install are :
 Dlib
@@ -12,5 +10,3 @@ Imutils
 Time
 Matplotlib
 Scipy
-
-
