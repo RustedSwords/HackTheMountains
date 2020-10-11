@@ -1,4 +1,4 @@
-import time
+
 
 def check_fps(prev_time) :
     cur_time = time.time() #Import the current time in seconds
