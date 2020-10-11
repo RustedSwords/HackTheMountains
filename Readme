@@ -1,4 +1,8 @@
+The main requirement is the shape recogniser which you can download from :  https://drive.google.com/file/d/1PxyeMw_gEwZWyelVWqLPzL8ZcR_Azfe2/view?usp=sharing
+
 The aim to design this software is to reduce the alarming rates of accident occuring due to driver's sleepiness driving. 
 We have designed a system which will detect driver's blinking of eye and all the factors are considered which will notify driver with alarm. 
 Our system approaches each parameter and alarm the user to save from even minor possiblity of action.
 Using libraries of python and image detection in major we have completed the project.
+
+
